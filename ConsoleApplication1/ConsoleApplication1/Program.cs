@@ -286,10 +286,16 @@ namespace ConsoleApplication1
             bool nomValid = false;
             bool artisteValid = false;
             bool anneeValid = false;
+            bool etatValid = false;
+            bool valeurValid = false;
+
             string[,] laliste = listOeuvre;
             string[,] lalisteNom = listArtiste;
             string oeuvreArtisteCode = "";
+            string etatOeuvre = "";
             string nonExiste = "";
+            string anneOeuvre = "";
+            decimal valeurOeuvre = 0;
 
             do
             {
@@ -354,7 +360,7 @@ namespace ConsoleApplication1
             do
             {
                 Console.WriteLine("Entrez l'année de realisation de l'oeuvre (AAAA)");
-                string anneOeuvre = Console.ReadLine();
+                anneOeuvre = Console.ReadLine();
                 
                 if (anneOeuvre.Length == 4)
                 {
@@ -376,8 +382,55 @@ namespace ConsoleApplication1
 
             } while (anneeValid == false);
 
-            Console.WriteLine("Date et valeur et etat");
+            do
+            {
+                Console.WriteLine("Entrez la valeur extimée de l'oeuvre");
+                string saisieOeuvre = Console.ReadLine();
+
+                if (anneOeuvre.Length == 4)
+                {
+                    try
+                    {
+                        valeurOeuvre = decimal.Parse(saisieOeuvre);
+                        valeurValid = true;
+                    }
+                    catch (FormatException e)
+                    {
+                        Console.WriteLine(e.Message);
+                        Console.ReadKey();
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Le format doit etre monetaire (0000.00");
+                }
+
+            } while (valeurValid == false);
+
+            do
+            {
+                Console.WriteLine("Entrez le statut / Etat de l'oeuvre (E/V/N)");
+                Console.WriteLine("E - Exposer | V - Vendu | Entreposer");
+                etatOeuvre = Console.ReadLine();
+
+                if (etatOeuvre.Length == 1)
+                {
+                    if (etatOeuvre == "E" || etatOeuvre == "V" || etatOeuvre == "N")
+                    {
+                        etatValid = true;
+                    }
+                       
+                }
+                else
+                {
+                    Console.WriteLine("Le status doit etre (E/V/N)");
+                }
+
+            } while (etatValid == false);
+
+            
             Console.WriteLine("L'artiste {0} a été assigné comme l'auteur de cette oeuvre", nonExiste);
+            Console.WriteLine("L'ouvre a été créer en {0} et a une valeur estimé de : {1}", anneOeuvre, valeurOeuvre);
             Console.WriteLine("Enregistrement de l'oeuvre - code: {0} - {1} à été effectuer", oeuvreCode, oeuvreNom);
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("Appuyer sur une touche pour continuer...");
@@ -385,9 +438,6 @@ namespace ConsoleApplication1
             Console.ReadKey();
             // retour enregistrement sauvegarder
             // Code pour sauvegarder le conservateur va ici
-
-
-
 
 
         }
@@ -503,10 +553,71 @@ namespace ConsoleApplication1
             return;
         }
 
-        public static object vendreOeuvre()
+        /// <summary>
+        /// Fonction pour vendre une oeuvre
+        /// </summary>
+        public static void vendreOeuvre()
         {
-            return "vendre oeuvres";
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.BackgroundColor = ConsoleColor.White;
+            Console.WriteLine("Vendre oeuvre");
+            Console.ResetColor();
+            Console.WriteLine("- - - - - - - - - - - -");
+            Console.WriteLine("Entrez le code de l'ouevre a vendre");
+
+            bool codeValid = false;
+            string[,] laliste = listOeuvre;
+            decimal PrixOeuvre = 0;
+
+            do
+            {
+                oeuvreCode = Console.ReadLine().ToUpper();
+
+                if (oeuvreCode.Length == 5)
+                {
+                    string nonExiste = getNom(laliste, oeuvreCode);
+                    if (nonExiste != "")
+                        codeValid = true;
+                    else
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("L'oeuvre " + oeuvreCode + "n'a pas été trouvée ");
+                        Console.ResetColor();
+                    }
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Code invalid - doit avoir 5 characteres ");
+                    Console.WriteLine("Entrez le code de l'oeuvre");
+                    Console.ResetColor();
+                }
+            } while (codeValid == false);
+
+            Console.WriteLine("Entrez le prix de vente :");
+            string saisiePrixOeuvre = Console.ReadLine();
+
+            try
+            {
+                PrixOeuvre = decimal.Parse(saisiePrixOeuvre);
+            }
+            catch (FormatException e)
+            {
+                Console.WriteLine(e.Message);
+                Console.ReadKey();
+            }
+
+            Console.WriteLine("Cette oeuvre a été vendu pour le prix de " + saisiePrixOeuvre);
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("Appuyer sur une touche pour continuer...");
+            Console.ResetColor();
+            Console.ReadKey();
+
+
         }
+
+                      
 
         /// <summary>
         /// Fonction qui recupere le nom associer a un code (2ieme champ de la table) avec la cle situé au premier champ

@@ -10,3 +10,9 @@ F:\PRFF_Projet\ConsoleApplication1\ConsoleApplication1\obj\Debug\ConsoleApplicat
 F:\PRFF_Projet\ConsoleApplication1\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe
 F:\PRFF_Projet\ConsoleApplication1\ConsoleApplication1\bin\Debug\ConsoleApplication1.pdb
 F:\PRFF_Projet\ConsoleApplication1\ConsoleApplication1\obj\Debug\ConsoleApplication1.csprojResolveAssemblyReference.cache
+C:\cooke\prog\PRFF\ConsoleApplication1\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe.config
+C:\cooke\prog\PRFF\ConsoleApplication1\ConsoleApplication1\obj\Debug\ConsoleApplication1.exe
+C:\cooke\prog\PRFF\ConsoleApplication1\ConsoleApplication1\obj\Debug\ConsoleApplication1.pdb
+C:\cooke\prog\PRFF\ConsoleApplication1\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe
+C:\cooke\prog\PRFF\ConsoleApplication1\ConsoleApplication1\bin\Debug\ConsoleApplication1.pdb
+C:\cooke\prog\PRFF\ConsoleApplication1\ConsoleApplication1\obj\Debug\ConsoleApplication1.csprojResolveAssemblyReference.cache
