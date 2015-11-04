@@ -1,6 +1,8 @@
 # PRFF
 CDI PRFF projet - correction a faire
 
+C# - Application console 
+
 Lorsque je veux entrer un nouveau conservateur et que j'inscris un code existant, je ne peux plus sortir du module. Il serait bien de donner la possibilité de quitter.
 
 Même chose dans ajouter oeuvre, si je ne me souviens plus de code de l'artiste je ne peux plus quitter le module.
