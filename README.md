@@ -1,7 +1,7 @@
 # PRFF
-CDI PRFF projet - correction a faire
+CDI PRFF projet C# - Application console 
 
-C# - Application console 
+correction a faire
 
 Lorsque je veux entrer un nouveau conservateur et que j'inscris un code existant, je ne peux plus sortir du module. Il serait bien de donner la possibilité de quitter.
 
